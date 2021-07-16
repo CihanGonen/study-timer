@@ -2,13 +2,14 @@ import {useRef,useEffect,useState} from 'react';
 
 import './AmbianceOptions.css';
 
-function AmbianceOptions({sounds,songIndex,setSongIndex}) {
+function AmbianceOptions({sounds,songIndex,setSongIndex,bgColor,setBgColor}) {
 
   const audioEl = useRef(null);
   const [isPlaying,setIsPlaying]= useState(false);
 
   const changeMusic = (index)=>{
       setSongIndex(index);
+      setBgColor(sounds[index].bg);
   }
 
   useEffect(()=>{

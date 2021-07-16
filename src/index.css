@@ -9,8 +9,25 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.start-bg{
+  background : linear-gradient(#94c3cb,black);
+}
+.fire-bg{
+  background : linear-gradient(#5f1608,black);
+}
+.rain-bg{
+  background : linear-gradient(#c95863,black);
+}
+.wind-bg{
+  background : linear-gradient(#9b0710,black);
+}
+.nature-bg{
+  background : linear-gradient(#232418,black);
+}
+.ocean-bg{
+  background : linear-gradient(#444342,black);
 }
