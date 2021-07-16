@@ -2,6 +2,7 @@ import {useState} from 'react';
 
 import AmbianceOptions from './AmbianceOptions/AmbianceOptions';
 import ShowScreen from './ShowScreen/ShowScreen';
+import TimerOptions from './TimerOptions/TimerOptions';
 
 function App() {
   const [sounds] = useState([
@@ -47,8 +48,16 @@ function App() {
   const [imgSrc,setImgSrc] = useState('./gifs/start.gif')
   const [artist,setArtist] = useState('http://facebook.com/tunadunn')
 
+  const [isPlaying,setIsPlaying]= useState(false);
+  const [disableButton,setDisableButton] = useState(false);
+  const [sessionLength,setSessionLength] = useState(25);
+  const [breakLength,setBreakLength] = useState(5);
+  const [useLength,setUseLength] = useState(sessionLength);
+  const [seconds,setSeconds] = useState(0);
+  const [sessionTime,setSessionTime] = useState(true);
+
   return (
-    <div className={"page-wrapper w-screen h-screen gif-wraper grid grid-rows-4 gap-10 "+bgColor}>
+    <div className={"page-wrapper w-screen h-screen gif-wraper grid grid-rows-6 "+bgColor}>
       <AmbianceOptions 
         sounds={sounds}
         songIndex={songIndex}
@@ -58,8 +67,28 @@ function App() {
         setArtist = {setArtist}
       /> 
       {/* <StudySessionOptions/> */}
-      {/* <TimerOptions/> */}
-      <ShowScreen imgSrc={imgSrc} artist={artist} /> 
+      <div>
+        <TimerOptions 
+          isPlaying={isPlaying} 
+          setIsPlaying={setIsPlaying} 
+          disableButton={disableButton}
+          setDisableButton={setDisableButton} 
+          sessionLength={sessionLength}
+          breakLength={breakLength}
+          sessionTime={sessionTime}
+          seconds={seconds}
+          setSeconds={setSeconds}
+          useLength={useLength}
+          setUseLength={setUseLength}
+        />
+        <ShowScreen 
+          imgSrc={imgSrc} 
+          artist={artist} 
+          useLength={useLength} 
+          seconds={seconds}
+        /> 
+      </div>
+
       {/* <BreakSessionOptions/> */}
       {/* <Footer/> */}
     </div>

@@ -5,7 +5,6 @@ import './AmbianceOptions.css';
 function AmbianceOptions({sounds,songIndex,setSongIndex,setBgColor,setImgSrc,setArtist}) {
 
   const audioEl = useRef(null);
-  const [isPlaying,setIsPlaying]= useState(false);
 
   const changeMusic = (index)=>{
       setSongIndex(index);
