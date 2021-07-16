@@ -1,0 +1,45 @@
+.ocean{
+  transition:color 250ms;
+  transition-timing-function:ease;
+}
+.btn:hover .ocean{
+  transition:color 250ms;
+  transition-timing-function:ease;
+  color:#185477;
+}
+.nature{
+  transition:color 250ms;
+  transition-timing-function:ease;
+}
+.btn:hover .nature{
+  transition:color 250ms;
+  transition-timing-function:ease;
+  color:#3c4422;
+}
+.wind{
+  transition:color 250ms;
+  transition-timing-function:ease;
+}
+.btn:hover .wind{
+  transition:color 250ms;
+  transition-timing-function:ease;
+  color:#747086;
+}
+.fire{
+  transition:color 250ms;
+  transition-timing-function:ease;
+}
+.btn:hover .fire{
+  transition:color 250ms;
+  transition-timing-function:ease;
+  color:#c74c0e;
+}
+.rain{
+  transition:color 250ms;
+  transition-timing-function:ease;
+}
+.btn:hover .rain{
+  transition:color 250ms;
+  transition-timing-function:ease;
+  color:#6494AA;
+}

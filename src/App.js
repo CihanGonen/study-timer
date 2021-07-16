@@ -2,7 +2,7 @@ import AmbianceOptions from './AmbianceOptions/AmbianceOptions';
 
 function App() {
   return (
-    <div className="App">
+    <div className="page-wrapper w-screen h-screen gif-wraper grid grid-rows-4">
       <AmbianceOptions/> 
       {/* <StudySessionOptions/> */}
       {/* <TimerOptions/> */}

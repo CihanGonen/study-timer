@@ -1,3 +1,5 @@
+import './AmbianceOptions.css';
+
 function AmbianceOptions() {
   return (
     <div className="row-span-1 flex justify-around items-center">
