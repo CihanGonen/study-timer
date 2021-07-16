@@ -1,8 +1,9 @@
+import AmbianceOptions from './AmbianceOptions/AmbianceOptions';
 
 function App() {
   return (
     <div className="App">
-      {/* <AmbianceOptions/> */}
+      <AmbianceOptions/> 
       {/* <StudySessionOptions/> */}
       {/* <TimerOptions/> */}
       {/* <ShowScreen/> */}
