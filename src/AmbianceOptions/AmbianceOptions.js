@@ -2,7 +2,7 @@ import {useRef,useEffect,useState} from 'react';
 
 import './AmbianceOptions.css';
 
-function AmbianceOptions({sounds,songIndex,setSongIndex,setBgColor,setImgSrc}) {
+function AmbianceOptions({sounds,songIndex,setSongIndex,setBgColor,setImgSrc,setArtist}) {
 
   const audioEl = useRef(null);
   const [isPlaying,setIsPlaying]= useState(false);
@@ -11,6 +11,7 @@ function AmbianceOptions({sounds,songIndex,setSongIndex,setBgColor,setImgSrc}) {
       setSongIndex(index);
       setBgColor(sounds[index].bg);
       setImgSrc(sounds[index].img_src);
+      setArtist(sounds[index].artist);
   }
 
   useEffect(()=>{

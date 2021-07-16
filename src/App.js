@@ -35,12 +35,17 @@ function App() {
       artist: "http://jjjjjjjjjjohn.tumblr.com/",
       bg: "wind-bg",
     },
-    {src:'',img_src:'./gifs/start.gif',bg:'start-bg'}
+    {
+      src:'',
+      img_src:'./gifs/start.gif',
+      artist:'http://facebook.com/tunadunn',
+      bg:'start-bg'}
   ])
 
   const [songIndex,setSongIndex] = useState(5);
   const [bgColor,setBgColor] = useState('start-bg');
   const [imgSrc,setImgSrc] = useState('./gifs/start.gif')
+  const [artist,setArtist] = useState('http://facebook.com/tunadunn')
 
   return (
     <div className={"page-wrapper w-screen h-screen gif-wraper grid grid-rows-4 gap-10 "+bgColor}>
@@ -50,10 +55,11 @@ function App() {
         setSongIndex={setSongIndex}  
         setBgColor = {setBgColor}
         setImgSrc= {setImgSrc}
+        setArtist = {setArtist}
       /> 
       {/* <StudySessionOptions/> */}
       {/* <TimerOptions/> */}
-      <ShowScreen imgSrc={imgSrc} /> 
+      <ShowScreen imgSrc={imgSrc} artist={artist} /> 
       {/* <BreakSessionOptions/> */}
       {/* <Footer/> */}
     </div>

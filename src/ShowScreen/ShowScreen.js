@@ -1,7 +1,13 @@
-const ShowScreen = ({imgSrc})=>{
+const ShowScreen = ({imgSrc,artist})=>{
   return(
     <div className="row-span-2 flex flex-col space-y-5 justify-center items-center">
-    <img className="rounded-lg opacity-80 w-80" alt="Theme" src={imgSrc}></img>
+      <div className="flex flex-col items-center w-80 relative">
+         <div className="bg-black opacity-70 z-10 border border-white p-2 rounded-lg absolute text-gray-100 top-3 text-5xl font-medium">
+             25:00
+        </div>
+        <img className="rounded-lg opacity-80" alt="Theme" src={imgSrc}></img>
+        <p className="text-gray-500 text-sm text-center">gif is from <a class="text-gray-400 text" href={artist} target='_blank'>here</a></p>
+      </div>
     </div>
   )
 }
