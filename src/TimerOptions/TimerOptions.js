@@ -1,88 +1,98 @@
-import {Component} from 'react'
+import {useState,useRef} from 'react'
 import './TimerOptions.css';
 
-class TimerOptions extends Component{
-  constructor(props){
-    super(props);
-    let {isPlaying, setIsPlaying,disableButton,setDisableButton,sessionLength,breakLength,sessionTime,seconds,setSeconds,useLength,setUseLength} = this.props;
-    this.state={
-      clock:0,
-      text:'Study',
-      changeText:()=>{
-        if(this.text==='Study'){
-          this.text='Break';
+const TimerOptions = ({isPlaying, setIsPlaying,setDisableButton,sessionLength,setSessionLength,breakLength,setBreakLength,sessionTime,seconds,setSeconds,useLength,setUseLength}) => {
+  
+      const [clock,setClock]=useState(0);
+      const [text,setText]= useState('Study');
+      const audioEl = useRef(null);
+
+      const changeText=()=>{
+        if(sessionTime){
+          setText('Study');
         }
         else{
-          this.text='Study';
+          setText('Break');
         }
-      },
-      timer : ()=>{
-        this.state.clock = setInterval(()=>{ 
-          console.log(isPlaying);
-          console.log(seconds);
-          if(seconds===0 && useLength===0){
-            /*audio.play();*/
+      }
+
+      const timer = ()=>{
+          let newUseLength = useLength===0 ? sessionLength : useLength;
+          setUseLength(newUseLength);
+          setClock(setInterval(()=>{ 
+          if(seconds===0 && newUseLength===0){
+            audioEl.current.play();
             if(sessionTime){
               sessionTime=false;
-              this.state.changeText();
-              useLength=breakLength;
-              setUseLength(breakLength);
+              changeText();
+              newUseLength=breakLength;
+              setUseLength(newUseLength);
             }
             else{
               sessionTime=true;
-              this.state.changeText();
-              setUseLength(sessionLength);
+              changeText();
+              newUseLength=sessionLength;
+              setUseLength(newUseLength);
             }
           }
           else if(seconds===0){
-            seconds=59;
-            setSeconds(59);
-            useLength-=1;
-            setUseLength(useLength);
+            let newSeconds = seconds+=59;
+            setSeconds(newSeconds);
+            newUseLength = newUseLength-=1;
+            setUseLength(newUseLength);
           }
           else{
-            seconds-=1;
-            setSeconds(seconds);
+            let newSeconds = seconds-=1;
+            setSeconds(newSeconds);
           }
-        },1000)
-      },
-      stopTimer: ()=>{
-        clearInterval(this.state.clock);
-        disableButton=false;
-        setDisableButton(disableButton);
-      },
-      startStop : ()=>{
-        isPlaying = !isPlaying;
-        setIsPlaying(isPlaying);
-        if(isPlaying){
-          disableButton=true;
-          setDisableButton(disableButton);
-          this.state.timer(); 
+        },1000))
+      }
+      
+      const resetter = () =>{
+        audioEl.current.pause();
+        audioEl.current.currentTime = 0 ;
+        stopTimer();
+        setDisableButton(false);
+        sessionTime=true;
+        changeText();
+        setIsPlaying(false);
+        setUseLength(0);
+        setSessionLength(25);
+        setBreakLength(5);
+        setSeconds(0);
+      }
+
+      const stopTimer = ()=>{
+        clearInterval(clock);
+      }
+
+      const startStop = ()=>{
+        let newPlaying = !isPlaying;
+        setIsPlaying(newPlaying);
+        if(newPlaying){
+          setDisableButton(true);
+          timer(); 
         }
         else{
-          this.state.stopTimer();
+          stopTimer();
         }
       }
-    }
-  }
-
-
-  render(){
+  
     return(
     <div className="pb-2">
       <div className='flex justify-center pb-2'>
-         <p className="text-xl text-gray-300">{this.state.text}</p>
+         <p className="text-xl text-gray-300">{text}</p>
       </div>
+      <audio src='./sounds/beep.mp3' ref={audioEl}></audio>
       <div className='flex justify-center space-x-10'>
         {/* burda koşul olcak display ederken */}
-          <button onClick={this.state.startStop}>
-            { this.isPlaying ? <i className="fas fa-pause play"></i> : <i className="fas fa-play play"></i>}
+          <button onClick={startStop}>
+            { isPlaying ? <i className="fas fa-pause play"></i> : <i className="fas fa-play play"></i>}
           </button>
-          <button><i className="fas fa-redo-alt play"></i></button>
+          <button onClick={resetter}><i className="fas fa-redo-alt play"></i></button>
       </div>
     </div>
     )
-  }
   
 }
 

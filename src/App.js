@@ -3,6 +3,9 @@ import {useState} from 'react';
 import AmbianceOptions from './AmbianceOptions/AmbianceOptions';
 import ShowScreen from './ShowScreen/ShowScreen';
 import TimerOptions from './TimerOptions/TimerOptions';
+import StudySessionOptions from './StudySessionOptions/StudySessionOptions';
+import BreakSessionOptions from './BreakSessionOptions/BreakSessionOptions';
+import Footer from './Footer/Footer';
 
 function App() {
   const [sounds] = useState([
@@ -52,13 +55,13 @@ function App() {
   const [disableButton,setDisableButton] = useState(false);
   const [sessionLength,setSessionLength] = useState(25);
   const [breakLength,setBreakLength] = useState(5);
-  const [useLength,setUseLength] = useState(sessionLength);
+  const [useLength,setUseLength] = useState(0);
   const [seconds,setSeconds] = useState(0);
   const [sessionTime,setSessionTime] = useState(true);
 
   return (
-    <div className={"page-wrapper w-screen h-screen gif-wraper grid grid-rows-6 "+bgColor}>
-      <AmbianceOptions 
+    <div className={"page-wrapper w-screen h-screen gif-wraper grid auto-rows-fr grid-rows-6 "+bgColor}>
+     <AmbianceOptions 
         sounds={sounds}
         songIndex={songIndex}
         setSongIndex={setSongIndex}  
@@ -66,31 +69,46 @@ function App() {
         setImgSrc= {setImgSrc}
         setArtist = {setArtist}
       /> 
-      {/* <StudySessionOptions/> */}
-      <div>
-        <TimerOptions 
-          isPlaying={isPlaying} 
-          setIsPlaying={setIsPlaying} 
+      <div className="row-span-5 grid-cols-3 grid">
+        <StudySessionOptions 
           disableButton={disableButton}
-          setDisableButton={setDisableButton} 
           sessionLength={sessionLength}
-          breakLength={breakLength}
-          sessionTime={sessionTime}
-          seconds={seconds}
-          setSeconds={setSeconds}
-          useLength={useLength}
-          setUseLength={setUseLength}
+          setSessionLength={setSessionLength} 
         />
-        <ShowScreen 
-          imgSrc={imgSrc} 
-          artist={artist} 
-          useLength={useLength} 
-          seconds={seconds}
-        /> 
-      </div>
+        <div className="flex flex-col justify-center">
+          <TimerOptions 
+            isPlaying={isPlaying} 
+            setIsPlaying={setIsPlaying} 
+            setDisableButton={setDisableButton}
+            sessionLength={sessionLength}
+            setSessionLength={setSessionLength}
+            breakLength={breakLength}
+            setBreakLength={setBreakLength}
+            sessionTime={sessionTime}
+            seconds={seconds}
+            setSeconds={setSeconds}
+            useLength={useLength}
+            setUseLength={setUseLength}
+          />
+          <ShowScreen 
+            imgSrc={imgSrc} 
+            artist={artist} 
+            useLength={useLength} 
+            seconds={seconds}
+            disableButton={disableButton}
+            sessionLength={sessionLength}
+          /> 
+    
+        </div>
+        <BreakSessionOptions 
+          disableButton={disableButton}
+          breakLength={breakLength}
+          setBreakLength={setBreakLength}
+        />
 
-      {/* <BreakSessionOptions/> */}
-      {/* <Footer/> */}
+
+      </div>
+      <Footer/>
     </div>
   );
 }

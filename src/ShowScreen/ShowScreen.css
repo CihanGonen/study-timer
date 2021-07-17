@@ -1,0 +1,8 @@
+.clockWidth{
+  display: inline-block;
+  width:135px;
+  max-width:135px;
+  min-width:135px;
+  overflow: hidden;
+  white-space: nowrap;
+}
