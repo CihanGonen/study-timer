@@ -14,7 +14,6 @@ function AmbianceOptions({sounds,songIndex,setSongIndex,setBgColor,setImgSrc,set
   }
 
   useEffect(()=>{
-    console.log(songIndex);
     audioEl.current.play();
   },[songIndex,sounds])
 

@@ -20,16 +20,16 @@ const BreakSessionOptions = ({disableButton,breakLength,setBreakLength})=>{
             <p className="text-gray-200 text-lg lg:text-xl">{breakLength}</p>
             <div className="flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-8">
               <button disabled={disableButton} onClick={()=>setTimer(-5)} className={getClass()}>
-              <i class="fas fa-angle-double-down"></i>
+              <i className="fas fa-angle-double-down"></i>
               </button>
               <button disabled={disableButton} onClick={()=>setTimer(-1)} className={getClass()}>
-              <i class="fas fa-angle-down"></i>
+              <i className="fas fa-angle-down"></i>
               </button>
               <button disabled={disableButton} onClick={()=>setTimer(1)} className={getClass()}>
-                <i class="fas fa-angle-up"></i>
+                <i className="fas fa-angle-up"></i>
                 </button>
               <button disabled={disableButton} onClick={()=>setTimer(5)} className={getClass()}>
-                <i class="fas fa-angle-double-up"></i>
+                <i className="fas fa-angle-double-up"></i>
                 </button>
             </div>
           </div>

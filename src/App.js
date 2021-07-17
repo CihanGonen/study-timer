@@ -57,7 +57,7 @@ function App() {
   const [breakLength,setBreakLength] = useState(5);
   const [useLength,setUseLength] = useState(0);
   const [seconds,setSeconds] = useState(0);
-  const [sessionTime,setSessionTime] = useState(true);
+  const [sessionTime] = useState(true);
 
   return (
     <div className={"page-wrapper w-screen h-screen gif-wraper grid auto-rows-fr grid-rows-6 "+bgColor}>
