@@ -48,7 +48,7 @@ function App() {
 
   const [songIndex,setSongIndex] = useState(5);
   const [bgColor,setBgColor] = useState('start-bg');
-  const [imgSrc,setImgSrc] = useState('./gifs/start.gif')
+  const [imgSrc,setImgSrc] = useState('./images/start.png')
   const [artist,setArtist] = useState('http://facebook.com/tunadunn')
 
   const [isPlaying,setIsPlaying]= useState(false);
