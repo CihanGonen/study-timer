@@ -17,7 +17,7 @@ const ShowScreen = ({imgSrc,artist,useLength,seconds,disableButton,sessionLength
              {disableButton ? cleanTime(useLength) : cleanTime(sessionLength)}:{cleanTime(seconds)}
         </div>
         <img className="rounded-lg opacity-80" alt="Theme" src={imgSrc}></img>
-        <p className="text-gray-500 text-xs pt-1 text-center">gif is from <a className="text-gray-400 text" href={artist} target='_blank'>here</a> and sound from Zapsplat.com</p>
+        <p className="text-gray-500 text-xs pt-1 text-center">image is from <a className="text-gray-400 text" href={artist} target='_blank'>here</a> and sound from Zapsplat.com</p>
       </div>
     </div>
   )
