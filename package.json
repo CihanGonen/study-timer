@@ -17,7 +17,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "dev": "react-scripts start",
+    "dev": "craco start",
     "start": "serve -s build",
     "build": "craco build",
     "test": "craco test",
