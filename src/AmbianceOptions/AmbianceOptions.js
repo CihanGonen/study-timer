@@ -50,7 +50,7 @@ function AmbianceOptions({sounds,songIndex,setSongIndex,setBgColor,setImgSrc,set
     }><i className="fas fa-cloud-showers-heavy pr-1 rain"></i>Rain</button>}
     
     {songIndex===4 ? <button className="bg-gray-100 opacity-70 p-3 rounded-md btn" value="home" onClick={
-      ()=>changeMusic(4)
+      ()=>changeMusic(5)
     }> <i class="fas fa-home pr-1"></i>No Ambiance</button>
     :<button className="bg-gray-100 opacity-70 p-3 rounded-md btn" value="wind" onClick={
       ()=>changeMusic(4)
